@@ -3,8 +3,16 @@
   <input (change)="resize(widthInput, heightInput)" type="number" placeholder="width" value="50" #widthInput/>
   <input (change)="resize(widthInput, heightInput)" type="number" placeholder="height" type="number" value="50" #heightInput/>
 
-  <div  [style.background-color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" ></div>
-  
+  <div class="shape" [style.background-color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" #square></div>
+
   <button (click)="reset(widthInput, heightInput)">Reset</button>
 
+  <ng-container *ngIf="tooBig; else t">
+      <div>Too big</div>
+  </ng-container>
+
+  <ng-template #t>
+      <div>Keep goin...</div>
+  </ng-template>
+  
 </div>

@@ -10,12 +10,16 @@ export class UpdateComponent {
   public width: string = '50';
   public height: string = '50';
   public color: string = 'green';
+  public tooBig: boolean = false;
 
   resize(width: HTMLInputElement, height: HTMLInputElement): void {
     if (!width && !height) return;
-    if (Number(this.width) > 100) this.color = 'red'
-    else this.color = 'green'
-
+    if (Number(width.value) >= 100 && Number(height.value) >= 100){
+      this.color = 'red';
+      this.tooBig = true;
+    }
+     else { this.color = 'green'; this.tooBig = false }
+    
     this.width = width.value;
     this.height = height.value
   }
@@ -24,6 +28,6 @@ export class UpdateComponent {
     width.value = this.width = '50'
     height.value = this.height = '50'
     this.color = 'green'
+    this.tooBig = false;
   }
- 
 }
