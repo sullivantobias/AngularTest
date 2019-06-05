@@ -1,0 +1,7 @@
+<div class="parent">
+  <input (change)="resizeWidth($event)" type="number" placeholder="width" value="50"/>
+  <input (change)="resizeHeight($event)" type="number" placeholder="height" type="number" value="50"/>
+
+  <div  [style.background-color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" ></div>
+
+</div>
