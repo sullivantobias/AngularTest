@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { BindingsComponent } from './bindings/bindings.component';
-import { UpdateComponent } from './update/update.component'
+import { UpdateComponent } from './update/update.component';
+import { SelectComponent } from './select/select.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     BindingsComponent,
-    UpdateComponent
+    UpdateComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 
 export class UpdateComponent {
+  public options : { width: number, height: number }[] = [
+    {width: 100, height: 100},
+    {width: 150, height: 150},
+    {width: 200, height: 200},
+  ]
+
   public width: string = '50';
   public height: string = '50';
   public color: string = 'green';
@@ -14,11 +20,7 @@ export class UpdateComponent {
 
   resize(width: HTMLInputElement, height: HTMLInputElement): void {
     if (!width && !height) return;
-    if (Number(width.value) >= 100 && Number(height.value) >= 100){
-      this.color = 'red';
-      this.tooBig = true;
-    }
-     else { this.color = 'green'; this.tooBig = false }
+    this.alerting(width, height)
     
     this.width = width.value;
     this.height = height.value
@@ -29,5 +31,18 @@ export class UpdateComponent {
     height.value = this.height = '50'
     this.color = 'green'
     this.tooBig = false;
+  }
+
+  resizeSelect(e) {
+    this.width = String(this.options[e.target.value].width)
+    this.height = String(this.options[e.target.value].height)
+  }
+
+  alerting(w: HTMLInputElement, h: HTMLInputElement) {
+    if (Number(w.value) >= 100 && Number(h.value) >= 100){
+      this.color = 'red';
+      this.tooBig = true;
+    }
+     else { this.color = 'green'; this.tooBig = false }
   }
 }

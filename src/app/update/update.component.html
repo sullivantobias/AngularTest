@@ -7,6 +7,12 @@
 
   <button (click)="reset(widthInput, heightInput)">Reset</button>
 
+  <select name="testselect" (change)="resizeSelect($event)" #select>
+    <option *ngFor="let option of options; let i = index" value="{{i}}">
+        w: {{option.width}} h: {{option.height}}
+    </option>
+  </select>
+
   <ng-container *ngIf="tooBig; else t">
       <div>Too big</div>
   </ng-container>
