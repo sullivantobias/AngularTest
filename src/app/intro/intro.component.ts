@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 
 export class IntroComponent {
   public message: string = "Lemon Squeezy"
+  public dateFormat: Date = new Date();
 }

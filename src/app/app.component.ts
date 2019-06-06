@@ -8,6 +8,5 @@ import { Component } from "@angular/core";
 export class AppComponent {
   public title: string = "Sullivan";
   public values: string[] = ["app-intro", "app-bindings", "app-update"];
-  public currentValue: string = this.values[0];
-
+  public currentValue: string = "";
 }

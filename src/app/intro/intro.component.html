@@ -1,3 +1,6 @@
 <p>
   Easy peasy {{ message }}
+
 </p>
+<div> Date in Paris {{ dateFormat | date: 'short'}} </div>
+<div> Date in New York {{ dateFormat | date: 'short' :'UTC -4'}} </div>

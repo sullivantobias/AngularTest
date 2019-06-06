@@ -1,13 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { IntroComponent } from './intro/intro.component';
-import { BindingsComponent } from './bindings/bindings.component';
-import { UpdateComponent } from './update/update.component';
-import { SelectComponent } from './select/select.component'
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { IntroComponent } from "./intro/intro.component";
+import { BindingsComponent } from "./bindings/bindings.component";
+import { UpdateComponent } from "./update/update.component";
+import { SelectComponent } from "./select/select.component";
+import { UnitPipe } from "./unit.pipe";
+import { HoveringDirective } from './hovering.directive';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,12 @@ import { SelectComponent } from './select/select.component'
     IntroComponent,
     BindingsComponent,
     UpdateComponent,
-    SelectComponent
+    SelectComponent,
+    UnitPipe,
+    HoveringDirective
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,13 +1,13 @@
-<button *ngFor="let item of values" (click)="currentValue = item">{{ item }}</button>
+<button *ngFor="let item of values" (click)="currentValue = item">
+  {{ item }}
+</button>
 
 <ng-container [ngSwitch]="currentValue">
+  <app-intro *ngSwitchCase="values[0]"></app-intro>
 
-    <app-intro *ngSwitchCase="values[0]"></app-intro>
+  <app-bindings *ngSwitchCase="values[1]"></app-bindings>
 
-    <app-bindings *ngSwitchCase="values[1]" ></app-bindings>
-
-    <app-update *ngSwitchCase="values[2]" ></app-update>
-
+  <app-update *ngSwitchCase="values[2]"></app-update>
 </ng-container>
 
 <router-outlet></router-outlet>

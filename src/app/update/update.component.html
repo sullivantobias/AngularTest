@@ -1,24 +1,48 @@
 <div class="parent">
   <h1>Resize the shape</h1>
-  <input [(ngModel)]="widthValue" type="number" placeholder="width" value="50"  />
-  <input [(ngModel)]="heightValue" type="number" placeholder="height" type="number" value="50"  />
+  <input
+    [(ngModel)]="widthValue"
+    type="number"
+    placeholder="width"
+    value="50"
+  />
+  <input
+    [(ngModel)]="heightValue"
+    type="number"
+    placeholder="height"
+    type="number"
+    value="50"
+  />
 
-  <div class="shape" [style.background-color]="color" [style.width]="widthValue + 'px'" [style.height]="heightValue + 'px'" #square></div>
+  <div
+    class="shape"
+    [style.background-color]="color"
+    [style.width]="widthValue + unit"
+    [style.height]="heightValue + unit"
+    [appHovering]="'violet'"
+    #square
+  ></div>
 
-  <button (click)="widthValue = heightValue = 50">Reset</button>
+  <button (click)="widthValue = heightValue = 50; unit = 'px'">Reset</button>
 
-  <select name="testselect" [(ngModel)]="optionSelected" (ngModelChange)="resizeSelect($event)">
-      <option *ngFor="let option of options" [ngValue]="option">
-        w: {{option.width}} h: {{option.height}}
-      </option>
-    </select>
+  <select
+    name="testselect"
+    [(ngModel)]="optionSelected"
+    (ngModelChange)="resizeSelect($event)"
+  >
+    <option *ngFor="let option of options" [ngValue]="option">
+      w: {{ option.width | unit: unit }} h: {{ option.height | unit: unit }}
+    </option>
+  </select>
 
   <ng-container *ngIf="tooBig; else t">
-      <div>Too big</div>
+    <div>Too big</div>
   </ng-container>
 
   <ng-template #t>
-      <div>Keep goin...</div>
+    <div>Keep goin...</div>
   </ng-template>
-  
+
+  <button (click)="unit = 'px'">Px</button>
+  <button (click)="unit = 'em'">Em</button>
 </div>

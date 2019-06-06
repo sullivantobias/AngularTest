@@ -13,16 +13,17 @@ export interface Options {
 export class UpdateComponent {
   public options: Options[] = [
     { width: 30, height: 30 },
-    { width: 100, height: 100 },
-    { width: 150, height: 150 },
-    { width: 200, height: 200 }
+    { width: 50, height: 50 },
+    { width: 60, height: 60 },
+    { width: 80, height: 80 }
   ];
 
   public color: string = "green";
   public tooBig: boolean = false;
   public widthValue: string = "50";
   public heightValue: string = "50";
-  public optionSelected: Options;
+  public optionSelected: Options = this.options[0];
+  public unit: string = "px";
 
   resizeSelect(e: Options) {
     this.widthValue = String(e.width);
