@@ -1,17 +1,17 @@
 <div class="parent">
   <h1>Resize the shape</h1>
-  <input (change)="resize(widthInput, heightInput)" type="number" placeholder="width" value="50" #widthInput/>
-  <input (change)="resize(widthInput, heightInput)" type="number" placeholder="height" type="number" value="50" #heightInput/>
+  <input [(ngModel)]="widthValue" type="number" placeholder="width" value="50"  />
+  <input [(ngModel)]="heightValue" type="number" placeholder="height" type="number" value="50"  />
 
-  <div class="shape" [style.background-color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" #square></div>
+  <div class="shape" [style.background-color]="color" [style.width]="widthValue + 'px'" [style.height]="heightValue + 'px'" #square></div>
 
-  <button (click)="reset(widthInput, heightInput)">Reset</button>
+  <button (click)="widthValue = heightValue = 50">Reset</button>
 
-  <select name="testselect" (change)="resizeSelect($event)" #select>
-    <option *ngFor="let option of options; let i = index" value="{{i}}">
+  <select name="testselect" [(ngModel)]="optionSelected" (ngModelChange)="resizeSelect($event)">
+      <option *ngFor="let option of options" [ngValue]="option">
         w: {{option.width}} h: {{option.height}}
-    </option>
-  </select>
+      </option>
+    </select>
 
   <ng-container *ngIf="tooBig; else t">
       <div>Too big</div>

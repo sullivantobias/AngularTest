@@ -1,48 +1,43 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+
+export interface Options {
+  width: number;
+  height: number;
+}
 
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss']
+  selector: "app-update",
+  templateUrl: "./update.component.html",
+  styleUrls: ["./update.component.scss"]
 })
-
 export class UpdateComponent {
-  public options : { width: number, height: number }[] = [
-    {width: 100, height: 100},
-    {width: 150, height: 150},
-    {width: 200, height: 200},
-  ]
+  public options: Options[] = [
+    { width: 30, height: 30 },
+    { width: 100, height: 100 },
+    { width: 150, height: 150 },
+    { width: 200, height: 200 }
+  ];
 
-  public width: string = '50';
-  public height: string = '50';
-  public color: string = 'green';
+  public color: string = "green";
   public tooBig: boolean = false;
+  public widthValue: string = "50";
+  public heightValue: string = "50";
+  public optionSelected: Options;
 
-  resize(width: HTMLInputElement, height: HTMLInputElement): void {
-    if (!width && !height) return;
-    this.alerting(width, height)
-    
-    this.width = width.value;
-    this.height = height.value
+  resizeSelect(e: Options) {
+    this.widthValue = String(e.width);
+    this.heightValue = String(e.height);
+
+    this.alerting();
   }
 
-  reset(width: HTMLInputElement, height: HTMLInputElement): void {
-    width.value = this.width = '50'
-    height.value = this.height = '50'
-    this.color = 'green'
-    this.tooBig = false;
-  }
-
-  resizeSelect(e) {
-    this.width = String(this.options[e.target.value].width)
-    this.height = String(this.options[e.target.value].height)
-  }
-
-  alerting(w: HTMLInputElement, h: HTMLInputElement) {
-    if (Number(w.value) >= 100 && Number(h.value) >= 100){
-      this.color = 'red';
+  alerting() {
+    if (Number(this.widthValue) >= 100 && Number(this.heightValue) >= 100) {
+      this.color = "red";
       this.tooBig = true;
+    } else {
+      this.color = "green";
+      this.tooBig = false;
     }
-     else { this.color = 'green'; this.tooBig = false }
   }
 }
