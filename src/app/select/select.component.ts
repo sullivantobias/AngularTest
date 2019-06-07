@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormationService, iTrainees } from "../formation.service";
+import { FormationService, ITrainee } from "../formation.service";
 
 @Component({
   selector: "app-select",
@@ -15,11 +15,11 @@ export class SelectComponent implements OnInit {
     { width: 200, height: 200 }
   ];
 
-  public trainees: iTrainees;
+  public trainees: ITrainee[];
 
   public ngOnInit(): void {
     this.srv.getTrainees().subscribe(
-      trainee => (this.trainees = trainee),
+      trainee => this.trainees = trainee,
 
       error => console.error(error),
 
