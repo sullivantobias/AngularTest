@@ -7,6 +7,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   public title: string = "Sullivan";
-  public values: string[] = ["app-intro", "app-bindings", "app-update"];
+  public values: string[] = ["app-intro", "app-bindings", "app-update", "app-select"];
   public currentValue: string = "";
 }

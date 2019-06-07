@@ -20,8 +20,8 @@ export class UpdateComponent {
 
   public color: string = "green";
   public tooBig: boolean = false;
-  public widthValue: string = "50";
-  public heightValue: string = "50";
+  public widthValue: string = "30";
+  public heightValue: string = "30";
   public optionSelected: Options = this.options[0];
   public unit: string = "px";
 

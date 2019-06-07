@@ -10,6 +10,8 @@ import { UpdateComponent } from "./update/update.component";
 import { SelectComponent } from "./select/select.component";
 import { UnitPipe } from "./unit.pipe";
 import { HoveringDirective } from './hovering.directive';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { HoveringDirective } from './hovering.directive';
     UnitPipe,
     HoveringDirective
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
